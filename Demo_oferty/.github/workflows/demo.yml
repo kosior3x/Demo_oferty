@@ -16,6 +16,9 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: ./Demo_oferty
-      - name: Run script
-        run: node index.js
+      - name: Run script and test
+        run: |
+          node index.js &
+          sleep 5
+          curl http://localhost:3000 | grep "Hello World!"
         working-directory: ./Demo_oferty

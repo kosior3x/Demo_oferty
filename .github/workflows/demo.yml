@@ -1,31 +1,21 @@
-name: DEMO – build everything
-
+name: Demo Workflow
 on:
   push:
-    branches: [ "main" ]
-  workflow_dispatch:   # pozwala uruchomić ręcznie kliknięciem
-
+    branches:
+      - main
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 18
-
-      - run: npm ci
-      - run: npm run build
-
-      - run: |
-          cd build
-          zip -r ../demo.zip .
-          cd ..
-
-      - uses: softprops/action-gh-release@v2
-        with:
-          tag_name: demo-${{ github.run_number }}
-          name: DEMO build ${{ github.run_number }}
-          files: demo.zip
+          node-version: '20'
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./Demo_oferty
+      - name: Build project
+        run: npm run build
+        working-directory: ./Demo_oferty

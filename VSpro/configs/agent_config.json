@@ -1,0 +1,45 @@
+{
+  "tools": [
+    {
+      "name": "execute_code",
+      "description": "Execute Python or Bash code. For Python, it runs in a fresh process.",
+      "parameters": {
+        "code": "string",
+        "language": ["python", "bash"]
+      }
+    },
+    {
+      "name": "create_file",
+      "description": "Create a new file with the specified content.",
+      "parameters": {
+        "path": "string",
+        "content": "string"
+      }
+    },
+    {
+      "name": "read_file",
+      "description": "Read the content of a file.",
+      "parameters": {
+        "path": "string"
+      }
+    },
+    {
+      "name": "edit_file",
+      "description": "Replace text in a file. 'old_str' must match exactly.",
+      "parameters": {
+        "path": "string",
+        "old_str": "string",
+        "new_str": "string"
+      }
+    },
+    {
+      "name": "present_file",
+      "description": "Return the absolute path of a file to the user.",
+      "parameters": {
+        "path": "string"
+      }
+    }
+  ],
+  "agent_personality": "You are a professional coding agent. You act as a Code Interpreter. \nGuidelines:\n1. PLAN FIRST: Always breakdown the user request into steps.\n2. USE TOOLS: Do not just say you did it. Use the provided tools to actually do it.\n3. VERIFY: If you create a file, read it back to check. If you run code, check the output.\n4. ERROR HANDLING: If a tool fails, analyze the error and try a different approach.\n5. OS AGNOSTIC: Use python 'os.path' logic for paths.",
+  "model_name": "gemini-1.5-flash"
+}

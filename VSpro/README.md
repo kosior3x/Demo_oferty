@@ -1,55 +1,46 @@
-# VSpro Coding Agent
+# VSpro Agent v4.0 (Builder Edition)
 
-A fully functional, cross-platform coding agent that mimics the capabilities of ChatGPT Code Interpreter. It uses Google Gemini for reasoning and a local tool executor for file and code operations.
+Kompletny system agenta kodującego w 4 plikach.
 
-## Features
+## 📂 Zawartość
+1. **VSpro_Agent_v4.0_COMPLETE.py** - Główny program (Agent).
+2. **fix_api_key.py** - Narzędzie do naprawy klucza API.
+3. **setup_android.sh** - Instalator (Android/Termux).
+4. **README.md** - Ta instrukcja.
 
-- **Autonomous Planning**: Breaks down complex tasks into steps.
-- **Code Execution**: Runs Python and Bash scripts locally.
-- **File Management**: Creates, reads, and edits files.
-- **History**: Remembers conversation context.
-- **Cross-Platform**: Designed to run on Android (Termux), Linux, and Windows.
+## 🚀 Szybki Start
 
-## Installation
-
-1.  **Prerequisites**: Python 3.x installed.
-2.  **Dependencies**:
-    ```bash
-    pip install google-generativeai
-    ```
-
-## Configuration
-
-1.  Create a `.env` file in the `VSpro` directory:
-    ```bash
-    cp .env.template .env
-    ```
-2.  Add your Google Gemini API Key:
-    ```
-    GOOGLE_API_KEY=your_actual_api_key_here
-    ```
-
-## Usage
-
-Run the agent from the `VSpro` directory:
-
+### Krok 1: Instalacja
+W terminalu (Termux):
 ```bash
-python agent.py
+chmod +x setup_android.sh
+./setup_android.sh
 ```
 
-### Example
+### Krok 2: Klucz API
+Jeśli nie masz klucza w `.env`, uruchom:
+```bash
+python fix_api_key.py
+```
+*(Pobierz klucz z: https://makersuite.google.com/app/apikey)*
 
-**User**: "Create a python script that calculates the first 10 Fibonacci numbers and saves them to fib.txt"
+### Krok 3: Uruchomienie
+```bash
+python VSpro_Agent_v4.0_COMPLETE.py
+```
 
-**Agent**:
-1.  Plans to create the script.
-2.  Executes the python code.
-3.  Writes to `fib.txt`.
-4.  Verifies the content.
-5.  Confirms success.
+## 💡 Jak używać?
 
-## Structure
+**Tryby pracy:**
+- `/mode accurate` (Domyślny) - Dokładny, z testami.
+- `/mode fast` - Szybki, bez testów.
+- `/mode creative` - Kreatywny.
 
-- `agent.py`: Main entry point.
-- `core/`: Core logic (Brain, Tools, Session).
-- `configs/`: Configuration files.
+**Przykłady komend:**
+- "Stwórz grę Snake w Pythonie."
+- "Przeanalizuj plik data.csv i zrób wykres."
+- "/project fastapi" (Tworzy strukturę projektu).
+
+## 🔧 Rozwiązywanie problemów
+- **Błąd API**: Uruchom `python fix_api_key.py`.
+- **Brak bibliotek**: Uruchom `./setup_android.sh`.

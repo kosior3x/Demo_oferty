@@ -29,6 +29,16 @@ A fully functional, cross-platform coding agent that mimics the capabilities of 
     GOOGLE_API_KEY=your_actual_api_key_here
     ```
 
+### Troubleshooting API Key
+
+If you encounter "API key not valid" errors, run the included helper script:
+
+```bash
+python fix_api_key.py
+```
+
+This script will interactively help you validate and save your API key.
+
 ## Usage
 
 Run the agent from the `VSpro` directory:
@@ -51,5 +61,6 @@ python agent.py
 ## Structure
 
 - `agent.py`: Main entry point.
+- `fix_api_key.py`: Helper script for API key setup.
 - `core/`: Core logic (Brain, Tools, Session).
 - `configs/`: Configuration files.
